@@ -16,7 +16,7 @@ const collect_ratings = () => {
   });
 
   if (ratings.count !== 0) {
-    ratings.average = ratings.count / ratings.sum;
+    ratings.average = ratings.sum / ratings.count;
   }
 
   return ratings;
@@ -24,7 +24,5 @@ const collect_ratings = () => {
 
 document.addEventListener("change", () => {
   const ratings = collect_ratings();
-  document
-    .querySelector("#average")
-    .setAttribute("value", ratings.average.toFixed(2));
+  document.querySelector("#average").value = ratings.average.toFixed(2);
 });
